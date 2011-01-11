@@ -3,7 +3,7 @@
 		<resource path="features/{handle}.json">
 			<param name="handle" required="true" type="xsd:string" style="query" default="SG_6fK3DOaRivKAmLA15lsuyv"/>
 			<method name="GET" id="features">
-				<authentication required="true"/>
+				<authentication required="false"/>
                 <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-features">Returns a feature object. It could be a place (point) or area (polygon).</doc>
 			</method>
 		</resource>
@@ -15,10 +15,38 @@
                 <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"/>Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.</doc>
 			</method>
 		</resource>
+        <resource path="context/address.json?address={address}">
+			<param name="address" required="true" type="xsd:string" style="query" default="41 Decatur St, San Francisco, CA"/>
+			<method name="GET" id="context_address">
+				<authentication required="true"/>
+                <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"/>Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.</doc>
+			</method>
+		</resource>
+        <resource path="context/{ip}.json">
+			<param name="ip" required="true" type="xsd:string" style="query" default="IP"/>
+			<method name="GET" id="context_ip">
+				<authentication required="true"/>
+                <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-context"/>Does a SimpleGeo Context query, returning polygons and other data related to a coordinate.</doc>
+			</method>
+		</resource>
         <resource path="places/{lat},{lon}.json">
 			<param name="lat" required="true" type="xsd:string" style="query" default="37.77275"/>
 			<param name="lon" required="true" type="xsd:string" style="query" default="-122.40572"/>
 			<method name="GET" id="places">
+				<authentication required="true"/>
+                <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-places">Does a SimpleGeo Places query, returning 25 features near a given point.</doc>
+			</method>
+		</resource>
+        <resource path="places/address.json?address={address}">
+			<param name="address" required="true" type="xsd:string" style="query" default="41 Decatur St, San Francisco, CA"/>
+			<method name="GET" id="places_address">
+				<authentication required="true"/>
+                <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-places">Does a SimpleGeo Places query, returning 25 features near a given point.</doc>
+			</method>
+		</resource>
+        <resource path="places/{ip}.json">
+			<param name="ip" required="true" type="xsd:string" style="query" default="IP"/>
+			<method name="GET" id="places_ip">
 				<authentication required="true"/>
                 <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-places">Does a SimpleGeo Places query, returning 25 features near a given point.</doc>
 			</method>
