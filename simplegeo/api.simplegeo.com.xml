@@ -7,6 +7,13 @@
                 <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-features">Returns a feature object. It could be a place (point) or area (polygon).</doc>
 			</method>
 		</resource>
+        <resource path="features/{handle}/annotations.json">
+			<param name="handle" required="true" type="xsd:string" style="query" default="SG_6fK3DOaRivKAmLA15lsuyv"/>
+			<method name="GET" id="get-feature-annotation">
+				<authentication required="false"/>
+                <doc url="http://simplegeo.com/docs/api-endpoints/simplegeo-features#annotating-features">Annotate metadata to a feature.</doc>
+			</method>
+		</resource>
 		<resource path="context/{lat},{lon}.json">
 			<param name="lat" required="true" type="xsd:string" style="query" default="37.77275"/>
 			<param name="lon" required="true" type="xsd:string" style="query" default="-122.40572"/>
